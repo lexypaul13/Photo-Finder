@@ -11,7 +11,14 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        NetworkManger.shared.get(.photoDetails,page: 1, urlString: "") { [weak self] (response: DataModel? ) in
+            guard self != nil else { return }
+            guard let shows = response?.user else {
+                return
+            }
+            print(shows)
+            
+        }
     }
 
 
