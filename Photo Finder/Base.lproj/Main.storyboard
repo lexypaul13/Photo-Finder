@@ -7,16 +7,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--Photo Table View Controller-->
         <scene sceneID="sRs-IO-izq">
             <objects>
-                <tableViewController id="Mb3-dt-3Ig" sceneMemberID="viewController">
+                <tableViewController id="Mb3-dt-3Ig" customClass="PhotoTableViewController" customModule="Photo_Finder" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="lZM-gF-7Yw">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="324" id="keQ-EA-8x2">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="324" id="keQ-EA-8x2" customClass="PhotoTableViewCell" customModule="Photo_Finder" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="428" height="324"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="keQ-EA-8x2" id="cnw-FU-lLx">
@@ -68,6 +68,12 @@
                                         <constraint firstItem="gl7-RY-sMw" firstAttribute="top" secondItem="q9O-Zj-zD5" secondAttribute="bottom" constant="11" id="req-Rk-kgS"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="date" destination="JwY-9m-UPI" id="WVr-ml-pXU"/>
+                                    <outlet property="fullName" destination="cnw-FU-lLx" id="nnk-QE-gqO"/>
+                                    <outlet property="photoImage" destination="zvH-6w-LZs" id="ZLK-Fx-yuF"/>
+                                    <outlet property="userName" destination="q9O-Zj-zD5" id="gLR-hS-f5h"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

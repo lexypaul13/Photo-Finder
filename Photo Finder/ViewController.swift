@@ -11,15 +11,6 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        NetworkManger.shared.get(.photoDetails,page: 1, urlString: "") { [weak self] (response: Photos? ) in
-            guard self != nil else { return }
-            guard let shows = response?.instructions else {
-                return
-            }
-            print(shows)
-            
-        }
     }
 
 

@@ -8,15 +8,28 @@
 import UIKit
 
 class PhotoTableViewController: UITableViewController {
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        NetworkManger.shared.get(.photoDetails,page: 1, urlString: "") { [weak self] (response: Photos? ) in
+            guard self != nil else { return }
+            guard let shows = response else {
+                return
+            }
+            print(shows)
+            
+        }
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        configureTableView()
+    }
+    func configureTableView(){
+        tableView.dataSource = self
+        tableView.delegate = self
     }
 
     // MARK: - Table view data source
