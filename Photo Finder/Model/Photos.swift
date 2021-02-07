@@ -5,8 +5,13 @@
 //  Created by Alex Paul on 2/5/21.
 //
 
-// MARK: - PhotoElement
-struct PhotoElement: Codable {
+import Foundation
+// This file was generated from JSON Schema using quicktype, do not modify it directly.
+// To parse the JSON, add this file to your project and do:
+//
+//   let welcome = try? newJSONDecoder().decode(Welcome.self, from: jsonData)
+
+struct Photos: Codable {
     var id: String?
     var createdAt: String?
     var updatedAt: String?
@@ -53,8 +58,6 @@ struct User:Codable {
         case portfolioURL = "portfolio_url"
         case bio = "bio"
         case location = "location"
-        case links = "links"
-        case profileImage = "profile_image"
         case instagramUsername = "instagram_username"
         case totalCollections = "total_collections"
         case totalLikes = "total_likes"
@@ -79,5 +82,4 @@ struct Urls: Codable {
         case thumb = "thumb"
     }
 }
-
-typealias Photo = [PhotoElement]
+typealias Photo = [Photos]

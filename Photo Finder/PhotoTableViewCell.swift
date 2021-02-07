@@ -15,7 +15,7 @@ class PhotoTableViewCell: UITableViewCell {
     @IBOutlet weak var photoImage: UIImageView!
     
     
-    func setTableCell(_ photos:PhotoElement){
+    func setTableCell(_ photos:Photos){
         updateUI(userName: photos.user?.username, fullName:photos.user?.name, date: photos.createdAt)
     }
     

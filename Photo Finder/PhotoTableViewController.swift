@@ -9,24 +9,25 @@ import UIKit
 
 class PhotoTableViewController: UITableViewController {
     
-    
+   var photos = [Photos]()
+   var page = 1
+   
     override func viewDidLoad() {
         super.viewDidLoad()
-        NetworkManger.shared.get(.photoDetails,page: 1, urlString: "") { [weak self] (response: Photos? ) in
+        configureTableView()
+    }
+    
+    
+    func getPhotoDetails(page:Int){
+        NetworkManger.shared.get(.photoDetails,page: page, urlString: "") { [weak self] (response: Photos? ) in
             guard self != nil else { return }
-            guard let shows = response else {
+            guard let photo = response else {
                 return
             }
             print(shows)
-            
         }
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        configureTableView()
     }
+    
     func configureTableView(){
         tableView.dataSource = self
         tableView.delegate = self
@@ -35,18 +36,20 @@ class PhotoTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return photos.count
     }
 
     
      override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! PhotoTableViewCell
+      
+        let photo = photos[indexPath.row]
+        cell.setTableCell(photo)
+     
         return cell
     }
    
