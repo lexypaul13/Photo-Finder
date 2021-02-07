@@ -35,7 +35,6 @@ class NetworkManger{
       
         guard let url = urlBuilder(endPoint: endPoints,page: page) else {
             print(ErroMessage.invalidURL.rawValue)
-            completed(ErroMessage.invalidURL.rawValue as? [T])
             return
         }
 

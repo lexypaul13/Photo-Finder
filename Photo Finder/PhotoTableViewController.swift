@@ -19,12 +19,12 @@ class PhotoTableViewController: UITableViewController {
     
     
     func getPhotoDetails(page:Int){
-        NetworkManger.shared.get(.photoDetails,page: page, urlString: "") { [weak self] (response: Photos? ) in
+        NetworkManger.shared.get(.photoDetails,page: page, urlString: "") { [weak self] (response: [Photos]? ) in
             guard self != nil else { return }
             guard let photo = response else {
                 return
             }
-            print(shows)
+            self.photo = photos
         }
     }
     
@@ -45,8 +45,7 @@ class PhotoTableViewController: UITableViewController {
 
     
      override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! PhotoTableViewCell
-      
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PhotoTableViewCell
         let photo = photos[indexPath.row]
         cell.setTableCell(photo)
      
