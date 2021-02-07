@@ -32,6 +32,7 @@ class NetworkManger{
     
     
     func get<T:Decodable>(_ endPoints: EndPoint, page: Int? = nil, urlString: String, completed:@escaping(T?)->Void){
+      
         guard let url = urlBuilder(endPoint: endPoints,page: page) else {
             print(ErroMessage.invalidURL.rawValue)
             completed(ErroMessage.invalidURL.rawValue as? T)
@@ -70,10 +71,9 @@ class NetworkManger{
     
     private func urlBuilder(endPoint:EndPoint, page:Int?=nil, query:String? = nil)->URL?{
         switch endPoint {
-        
+        //https://api.unsplash.com/photos/?client_id=bqiPXuYiURtZALfadZpG1_QTMg55VqTrUOY5f81nC3A&page=1&orderby=latest
         case .photoDetails:
-            return URL(string: baseURL + apiKeyPathCompononent + "&page=\(page ?? 1)" )
-       
+            return URL(string: baseURL + apiKeyPathCompononent + "page=\(page ?? 0)" )
         case .searchResult:
             return URL(string: baseURL + apiKeyPathCompononent + "&query=\(query ?? "nothing")+ &orientation=landscape")
         }
