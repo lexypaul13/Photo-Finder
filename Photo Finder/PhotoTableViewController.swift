@@ -15,16 +15,19 @@ class PhotoTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
+        getPhotoDetails(page: page)
     }
     
     
     func getPhotoDetails(page:Int){
         NetworkManger.shared.get(.photoDetails,page: page, urlString: "") { [weak self] (response: [Photos]? ) in
-            guard self != nil else { return }
+        
+            guard let self = self else { return }
             guard let photo = response else {
                 return
             }
-            self.photo = photos
+            DispatchQueue.main.async {self.tableView.reloadData()}
+            self.photos = photo
         }
     }
     

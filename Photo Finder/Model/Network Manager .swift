@@ -31,10 +31,11 @@ class NetworkManger{
     }()
     
     
-    func get<T:Decodable>(_ endPoints: EndPoint, page: Int? = nil, urlString: String, completed:@escaping([T]?)->Void){
+    func get<T:Decodable>(_ endPoints: EndPoint, page: Int? = nil, urlString: String, completed:@escaping(T?)->Void){
       
         guard let url = urlBuilder(endPoint: endPoints,page: page) else {
             print(ErroMessage.invalidURL.rawValue)
+            completed(ErroMessage.invalidURL.rawValue as? T)
             return
         }
 
@@ -55,7 +56,7 @@ class NetworkManger{
                 return
             }
             do{
-                let apiResponse = try self.jsonDecoder.decode([T].self, from: data)
+                let apiResponse = try self.jsonDecoder.decode(T.self, from: data)
                 DispatchQueue.main.async {
                     completed(apiResponse)
                 }
