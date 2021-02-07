@@ -21,13 +21,13 @@ class PhotoTableViewController: UITableViewController {
     
     func getPhotoDetails(page:Int){
         NetworkManger.shared.get(.photoDetails,page: page, urlString: "") { [weak self] (response: [Photos]? ) in
-        
             guard let self = self else { return }
             guard let photo = response else {
                 return
             }
-            DispatchQueue.main.async {self.tableView.reloadData()}
             self.photos = photo
+            DispatchQueue.main.async {self.tableView.reloadData()}
+           
         }
     }
     
@@ -37,16 +37,13 @@ class PhotoTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return photos.count
     }
 
-    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 163
+    }
      override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PhotoTableViewCell
         let photo = photos[indexPath.row]
@@ -54,9 +51,6 @@ class PhotoTableViewController: UITableViewController {
      
         return cell
     }
-   
-    
-    
     
     // MARK: - Navigation
 

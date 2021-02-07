@@ -69,8 +69,8 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="date" destination="JwY-9m-UPI" id="WVr-ml-pXU"/>
-                                    <outlet property="fullName" destination="cnw-FU-lLx" id="nnk-QE-gqO"/>
+                                    <outlet property="date" destination="JwY-9m-UPI" id="tDJ-3s-OHP"/>
+                                    <outlet property="fullName" destination="gl7-RY-sMw" id="CsJ-8f-Pww"/>
                                     <outlet property="photoImage" destination="zvH-6w-LZs" id="ZLK-Fx-yuF"/>
                                     <outlet property="userName" destination="q9O-Zj-zD5" id="gLR-hS-f5h"/>
                                 </connections>
@@ -84,7 +84,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Tt-Xg-NA6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="768.11594202898561" y="36.160714285714285"/>
+            <point key="canvasLocation" x="766.82242990654197" y="35.637149028077758"/>
         </scene>
     </scenes>
     <resources>
