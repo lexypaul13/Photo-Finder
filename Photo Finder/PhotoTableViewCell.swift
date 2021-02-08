@@ -16,14 +16,24 @@ class PhotoTableViewCell: UITableViewCell {
     
     
     func setTableCell(_ photos:Photos){
-        updateUI(userName: photos.user?.username, fullName:photos.user?.name, date: photos.createdAt)
+        updateUI(userName: photos.user?.username, fullName:photos.user?.name, date: photos.createdAt, photo: photos.urls?.thumb)
     }
     
-    private func updateUI(userName:String?,fullName:String?,date:String?){
+    private func updateUI(userName:String?,fullName:String?,date:String?,photo:String?){
         self.userName.text = userName
         self.fullName.text = fullName
         self.date.text = date
+        downloadImage(photo ?? "")
     }
     
+    func downloadImage(_ url:String)  {
+        NetworkManger.shared.downloadImage(from:url){ [weak self] image in
+               guard let self = self else { return }
+               DispatchQueue.main.async {
+                self.photoImage.image = image
+               }
+            
+        }
+    }
 
 }

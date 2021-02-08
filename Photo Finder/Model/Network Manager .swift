@@ -5,7 +5,7 @@
 //  Created by Alex Paul on 2/4/21.
 //
 
-import Foundation
+import UIKit
 
 class NetworkManger{
     
@@ -15,13 +15,16 @@ class NetworkManger{
     }
     
     static let shared = NetworkManger()
-    private let baseURL:String
+    private let baseURL: String
     private var  apiKeyPathCompononent :String
-    //let cache   = NSCache<NSString, UIImage>()
+    private var imageURL = Photos()
+    let cache   = NSCache<NSString, UIImage>()
     
+   
     private init(){
         self.baseURL = "https://api.unsplash.com/photos/?"
         self.apiKeyPathCompononent = "client_id=bqiPXuYiURtZALfadZpG1_QTMg55VqTrUOY5f81nC3A&"
+
     }
     
     private var jsonDecoder:JSONDecoder = {
@@ -67,6 +70,36 @@ class NetworkManger{
         }
         task.resume()
     }
+    
+    func downloadImage(from urlString: String, completed: @escaping (UIImage?) -> Void) {  //downloads image
+        let cacheKey = NSString(string: urlString) //creates cacheKey to store in image variable
+        let imagesBaseURLSTring = imageURL.urls?.thumb ?? "No image"
+        
+        guard let url = URL(string: imagesBaseURLSTring) else {
+            completed(nil)
+            return
+        }
+        
+        if let image = cache.object(forKey: cacheKey) {  //check if image is there
+            completed(image)
+            return
+        }
+        let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+            guard let self = self,
+                  error == nil,
+                  let response = response as? HTTPURLResponse, response.statusCode == 200,
+                  let data = data,
+                  let image = UIImage(data: data) else {
+                completed(nil)
+                return
+            }
+            self.cache.setObject(image, forKey: cacheKey)
+            completed(image)
+        }
+        task.resume()
+    }
+    
+    
     
     
     private func urlBuilder(endPoint:EndPoint, page:Int?=nil, query:String? = nil)->URL?{
