@@ -16,7 +16,7 @@ class PhotoTableViewCell: UITableViewCell {
     
     
     func setTableCell(_ photos:Photos){
-        updateUI(userName: photos.user?.username, fullName:photos.user?.name, date: photos.createdAt, photo: photos.urls?.thumb)
+        updateUI(userName: photos.user?.username, fullName:photos.user?.name, date: photos.createdAt?.convertToDisplayFormat(), photo: photos.urls?.regular)
     }
     
     private func updateUI(userName:String?,fullName:String?,date:String?,photo:String?){

@@ -24,11 +24,18 @@ class PhotoTableViewController: UITableViewController {
     }
     
     func getPhotoDetails(page:Int){
-        NetworkManger.shared.get(.photoDetails,page: page, urlString: "") { [weak self] (response: [Photos]? ) in
+        NetworkManger.shared.get(.photoDetails,page: page, urlString: "") { [weak self] (result: Result<[Photos]?, ErroMessage> ) in
             guard let self = self else { return }
-            guard let photo = response else {return}
-            self.photos = photo
-            DispatchQueue.main.async {self.tableView.reloadData()}
+            switch result{
+            
+            case .success(let photo):
+                self.photos = photo ?? []
+                DispatchQueue.main.async {self.tableView.reloadData()}
+            
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+            
         }
     }
 
@@ -37,13 +44,14 @@ class PhotoTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 163
+        return 550
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PhotoTableViewCell
         let photo = photos[indexPath.row]
         cell.setTableCell(photo)
+        
         return cell
     }
     

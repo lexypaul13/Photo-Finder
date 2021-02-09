@@ -20,6 +20,7 @@
 		57AC3C9725CCEBFF0063150F /* Network Manager .swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AC3C9625CCEBFF0063150F /* Network Manager .swift */; };
 		57CC207125CF810B00824D64 /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CC207025CF810B00824D64 /* PhotoTableViewCell.swift */; };
 		57D01A5325CD09390032F15B /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D01A5225CD09390032F15B /* Photos.swift */; };
+		57E9A6B925D2801F006ABE2A /* Date&Stri+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E9A6B825D2801F006ABE2A /* Date&Stri+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		57AC3C9625CCEBFF0063150F /* Network Manager .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network Manager .swift"; sourceTree = "<group>"; };
 		57CC207025CF810B00824D64 /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
 		57D01A5225CD09390032F15B /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
+		57E9A6B825D2801F006ABE2A /* Date&Stri+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date&Stri+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 				57AC3C5E25CCCE090063150F /* ViewController.swift */,
 				57AC3C9125CCEB600063150F /* PhotoTableViewController.swift */,
 				57CC207025CF810B00824D64 /* PhotoTableViewCell.swift */,
+				57E9A6B825D2801F006ABE2A /* Date&Stri+Ext.swift */,
 				57AC3C6025CCCE090063150F /* Main.storyboard */,
 				57AC3C6325CCCE0B0063150F /* Assets.xcassets */,
 				57AC3C6525CCCE0B0063150F /* LaunchScreen.storyboard */,
@@ -281,6 +284,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57E9A6B925D2801F006ABE2A /* Date&Stri+Ext.swift in Sources */,
 				57CC207125CF810B00824D64 /* PhotoTableViewCell.swift in Sources */,
 				57D01A5325CD09390032F15B /* Photos.swift in Sources */,
 				578E2C3025CE3022004EC9C9 /* ErrorMessage.swift in Sources */,
