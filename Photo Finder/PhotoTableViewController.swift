@@ -10,12 +10,28 @@ import UIKit
 class PhotoTableViewController: UITableViewController {
     
     var photos = [Photos]()
+    var filteredPhotos = [Photos]()
     var page = 1
+   
+    let searchController = UISearchController(searchResultsController: nil)
+    var isSearchBarEmpty: Bool {return searchController.searchBar.text?.isEmpty ?? true}
+    var isFiltering: Bool {return searchController.isActive && !isSearchBarEmpty}
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureSearchController()
         configureTableView()
         getPhotoDetails(page: page)
+    }
+    
+    func configureSearchController(){
+        navigationController?.navigationBar.prefersLargeTitles = true
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Pictures"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
     }
     
     func configureTableView(){
@@ -23,11 +39,11 @@ class PhotoTableViewController: UITableViewController {
         tableView.delegate = self
     }
     
+    
     func getPhotoDetails(page:Int){
         NetworkManger.shared.get(.photoDetails,page: page, urlString: "") { [weak self] (result: Result<[Photos]?, ErroMessage> ) in
             guard let self = self else { return }
             switch result{
-            
             case .success(let photo):
                 self.photos = photo ?? []
                 DispatchQueue.main.async {self.tableView.reloadData()}
@@ -40,8 +56,13 @@ class PhotoTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+      
+        if isFiltering{
+            return filteredPhotos.count
+        }
         return photos.count
     }
+    
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 550
@@ -66,3 +87,29 @@ class PhotoTableViewController: UITableViewController {
     
 }
 
+extension PhotoTableViewController:UISearchResultsUpdating{
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+        filterContentForSearchText(searchBar.text!, photos)
+    }
+    
+    func filterContentForSearchText(_ searchText: String, _ category: [Photos]){
+        NetworkManger.shared.get(.searchResult,page: page, urlString: searchText) { [weak self] (result: Result<[Photos]?, ErroMessage> ) in
+            guard let self = self else { return }
+            switch result{
+            case .success( _):
+                self.filteredPhotos = self.photos.filter({ (pictures: Photos) -> Bool in
+                return (pictures.id?.lowercased().contains(searchText.lowercased()) ?? false) })
+                DispatchQueue.main.async {self.tableView.reloadData()}
+            
+            case .failure(let error):
+                print("No results")
+            }
+            
+        }
+        
+        
+        
+    }
+    
+}
