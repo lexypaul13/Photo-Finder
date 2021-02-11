@@ -8,15 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		578E2C3025CE3022004EC9C9 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578E2C2F25CE3022004EC9C9 /* ErrorMessage.swift */; };
+		579A429525D5062D007B56AC /* PhotoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579A429425D5062D007B56AC /* PhotoTableViewController.swift */; };
 		57AC3C5B25CCCE090063150F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AC3C5A25CCCE090063150F /* AppDelegate.swift */; };
 		57AC3C5D25CCCE090063150F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AC3C5C25CCCE090063150F /* SceneDelegate.swift */; };
-		57AC3C5F25CCCE090063150F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AC3C5E25CCCE090063150F /* ViewController.swift */; };
 		57AC3C6225CCCE090063150F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57AC3C6025CCCE090063150F /* Main.storyboard */; };
 		57AC3C6425CCCE0B0063150F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57AC3C6325CCCE0B0063150F /* Assets.xcassets */; };
 		57AC3C6725CCCE0B0063150F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57AC3C6525CCCE0B0063150F /* LaunchScreen.storyboard */; };
 		57AC3C7225CCCE0B0063150F /* Photo_FinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AC3C7125CCCE0B0063150F /* Photo_FinderTests.swift */; };
 		57AC3C7D25CCCE0B0063150F /* Photo_FinderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AC3C7C25CCCE0B0063150F /* Photo_FinderUITests.swift */; };
-		57AC3C9225CCEB600063150F /* PhotoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AC3C9125CCEB600063150F /* PhotoTableViewController.swift */; };
 		57AC3C9725CCEBFF0063150F /* Network Manager .swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AC3C9625CCEBFF0063150F /* Network Manager .swift */; };
 		57CC207125CF810B00824D64 /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CC207025CF810B00824D64 /* PhotoTableViewCell.swift */; };
 		57D01A5325CD09390032F15B /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D01A5225CD09390032F15B /* Photos.swift */; };
@@ -42,10 +41,10 @@
 
 /* Begin PBXFileReference section */
 		578E2C2F25CE3022004EC9C9 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
+		579A429425D5062D007B56AC /* PhotoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTableViewController.swift; sourceTree = "<group>"; };
 		57AC3C5725CCCE090063150F /* Photo Finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Photo Finder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		57AC3C5A25CCCE090063150F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57AC3C5C25CCCE090063150F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		57AC3C5E25CCCE090063150F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		57AC3C6125CCCE090063150F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		57AC3C6325CCCE0B0063150F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		57AC3C6625CCCE0B0063150F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -56,7 +55,6 @@
 		57AC3C7825CCCE0B0063150F /* Photo FinderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Photo FinderUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		57AC3C7C25CCCE0B0063150F /* Photo_FinderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo_FinderUITests.swift; sourceTree = "<group>"; };
 		57AC3C7E25CCCE0B0063150F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		57AC3C9125CCEB600063150F /* PhotoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTableViewController.swift; sourceTree = "<group>"; };
 		57AC3C9625CCEBFF0063150F /* Network Manager .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network Manager .swift"; sourceTree = "<group>"; };
 		57CC207025CF810B00824D64 /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
 		57D01A5225CD09390032F15B /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
@@ -94,6 +92,7 @@
 				57AC3C9625CCEBFF0063150F /* Network Manager .swift */,
 				578E2C2F25CE3022004EC9C9 /* ErrorMessage.swift */,
 				57D01A5225CD09390032F15B /* Photos.swift */,
+				57E9A6B825D2801F006ABE2A /* Date&Stri+Ext.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -124,10 +123,8 @@
 				57AC3C5A25CCCE090063150F /* AppDelegate.swift */,
 				57AC3C5C25CCCE090063150F /* SceneDelegate.swift */,
 				578E2C3425CE310F004EC9C9 /* Model */,
-				57AC3C5E25CCCE090063150F /* ViewController.swift */,
-				57AC3C9125CCEB600063150F /* PhotoTableViewController.swift */,
 				57CC207025CF810B00824D64 /* PhotoTableViewCell.swift */,
-				57E9A6B825D2801F006ABE2A /* Date&Stri+Ext.swift */,
+				579A429425D5062D007B56AC /* PhotoTableViewController.swift */,
 				57AC3C6025CCCE090063150F /* Main.storyboard */,
 				57AC3C6325CCCE0B0063150F /* Assets.xcassets */,
 				57AC3C6525CCCE0B0063150F /* LaunchScreen.storyboard */,
@@ -286,11 +283,10 @@
 			files = (
 				57E9A6B925D2801F006ABE2A /* Date&Stri+Ext.swift in Sources */,
 				57CC207125CF810B00824D64 /* PhotoTableViewCell.swift in Sources */,
+				579A429525D5062D007B56AC /* PhotoTableViewController.swift in Sources */,
 				57D01A5325CD09390032F15B /* Photos.swift in Sources */,
 				578E2C3025CE3022004EC9C9 /* ErrorMessage.swift in Sources */,
-				57AC3C5F25CCCE090063150F /* ViewController.swift in Sources */,
 				57AC3C5B25CCCE090063150F /* AppDelegate.swift in Sources */,
-				57AC3C9225CCEB600063150F /* PhotoTableViewController.swift in Sources */,
 				57AC3C9725CCEBFF0063150F /* Network Manager .swift in Sources */,
 				57AC3C5D25CCCE090063150F /* SceneDelegate.swift in Sources */,
 			);

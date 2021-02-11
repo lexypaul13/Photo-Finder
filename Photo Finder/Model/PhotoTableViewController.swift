@@ -2,15 +2,15 @@
 //  PhotoTableViewController.swift
 //  Photo Finder
 //
-//  Created by Alex Paul on 2/11/21.
+//  Created by Alex Paul on 2/4/21.
 //
 
 import UIKit
 
-
-class PhotoTableViewController: UITableViewController {
+class PhotoTableViewController: UITableViewController, UISearchBarDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
+    
     var photos = [Photos]()
     var filteredPhotos = [Photos]()
     var page = 1
@@ -28,10 +28,11 @@ class PhotoTableViewController: UITableViewController {
     }
     
     func configureSearchController(){
+        searchBar.delegate = self
         navigationController?.navigationBar.prefersLargeTitles = true
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search Pictures"
+        searchBar.placeholder = "Search Pictures"
         navigationItem.searchController = searchController
         definesPresentationContext = true
     }
@@ -90,6 +91,7 @@ class PhotoTableViewController: UITableViewController {
 }
 
 extension PhotoTableViewController:UISearchResultsUpdating{
+    
     func updateSearchResults(for searchController: UISearchController) {
         let searchBar = searchController.searchBar
         filterContentForSearchText(searchBar.text!, photos)
